@@ -8,21 +8,25 @@ public class IntString implements Codification<Integer,String>{
     private final int numFen;
 
     private List<Integer> c;
+    private List<String> p;
     //Constructor que inicializa el tamanio
-    public IntString(int f, int g){
-	this.numGen = g;
-	this.numFen = f;
+    public IntString(int tam){
+	this.numGen = this.numFen = tam;
     }
 
-    public Genotype<Integer> encode (Phenotype<String> p){
+    public Genotype<Integer> encode (Phenotype<String> phenotype){
 	Genotype<Integer> out = new Genotype<>(numGen);
-	c =new ArrayList<>();
+	p  =new ArrayList<>();
 	for(int i=1;i<this.numGen+1;i++){
-	    c.add(i);
+	    p.add("C"+i);
 	}
-	for(int i=0;i<p.size();i++){
-	    
+	for(int i=0;i<phenotype.size();i++){
+	    String phen = phenotype.getAllele(i);
+	    int gen = p.indexOf(phen);
+	    p.remove(phen);
+	    out.setGene(i,gen);
 	}
+	return out;
     }
 
     public Phenotype<String> decode(Genotype<Integer> genotype){
@@ -34,8 +38,6 @@ public class IntString implements Codification<Integer,String>{
 	for(int i=0;i<genotype.size();i++){
 	    int gen = genotype.getGene(i).intValue();
 	    int phen = c.get(gen);
-	    System.out.println(c);
-	    System.out.println(phen);
 	    c.remove(gen);   
 	    out.setAllele(i,"C"+phen);
 	}
@@ -55,10 +57,12 @@ public class IntString implements Codification<Integer,String>{
     }
 
     public static void main (String[] args){
-	IntString i = new IntString(5,5);
+	IntString i = new IntString(5);
 	Genotype<Integer> g = i.newRandomGenotype();
 	System.out.println(g);
 	Phenotype<String> p = i.decode(g);
 	System.out.println(p);
+        g = i.encode(p);
+	System.out.println(g);
     }
 }
