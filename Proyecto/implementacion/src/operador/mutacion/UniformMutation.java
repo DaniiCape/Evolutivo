@@ -18,11 +18,13 @@ public class UniformMutation implements MutationOp<Integer>{
         this.tamGen = tamGen;
     }
 
-    public Genotype<Boolean> mutate(Genotype<Integer> g){
-	Genotype<Boolean> out = new Genotype<>(g.size());
+    public Genotype<Integer> mutate(Genotype<Integer> g){
+	Genotype<Integer> out = new Genotype<>(g.size());
         Random r2 = new Random();
 	for(int i=0; i<g.size();i++){
-	    if(r.nextDouble()< this.prob){
+	    double r3 = r.nextDouble();
+	    //System.out.println(r3);
+	    if(r3 < this.prob){
 	        int rm = r2.nextInt(tamGen);
                 Integer iout = new Integer(rm);
 		out.setGene(i, iout);
@@ -33,4 +35,21 @@ public class UniformMutation implements MutationOp<Integer>{
 	return out;
 
     }
+
+public static void main (String[] args){
+    UniformMutation um = new UniformMutation(.9, 1, 5);
+    Genotype<Integer> g = new Genotype<Integer>(5);
+	Random r = new Random();
+	for(int i=0; i<5; i++){
+	    int ra = r.nextInt(5);
+	    //System.out.println(ra);
+	    Integer in = new Integer(ra);
+	    //System.out.println(in);
+	    g.setGene(i,in);
+	}
+	System.out.println(g);
+	Genotype<Integer> rg = um.mutate(g);
+	System.out.println(rg);	    
+    
+ }
 } 
