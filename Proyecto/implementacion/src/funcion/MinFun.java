@@ -9,10 +9,10 @@ public class MinFun implements FitnessFunction<Integer>{
     }
 
     public double peso(int a , int b){
-	double x1 = this.vertices[a-1];
-	double y1 = this.vertices[a];
-	double x2 = this.vertices[b-1];
-	double y2 = this.vertices[b];
+	double x1 = this.vertices[(a*2)-2];
+	double y1 = this.vertices[(a*2)-1];
+	double x2 = this.vertices[(b*2)-2];
+	double y2 = this.vertices[(b*2)-1];
 	if(x1<x2){
 	    x1 = x1 + x2;
 	    x2 = x1 - x2;
@@ -35,7 +35,7 @@ public class MinFun implements FitnessFunction<Integer>{
 	    int b = p.getAllele(0).intValue();
 	    if(i+1<p.size())
 		b = p.getAllele(i+1).intValue();
-	    System.out.println("("+a+","+b+")");
+	    fit = fit + peso(a,b);
 	}
 	return fit;
 	    
@@ -48,7 +48,11 @@ public class MinFun implements FitnessFunction<Integer>{
 	p.setAllele(2,3);
 	p.setAllele(3,2);
 	p.setAllele(4,1);
-	MinFun m = new MinFun(new double[10]);
-	m.evaluate(p);
+	double[] v =new double[10];
+	for(int i =0;i<10;i++)
+	    v[i]=i;
+	MinFun m = new MinFun(v);
+	
+	System.out.println(m.evaluate(p));
     }
 }
