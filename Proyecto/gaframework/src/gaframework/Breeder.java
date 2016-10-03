@@ -70,7 +70,7 @@ public class Breeder<G,P> {
      */
     public Population<G,P> newRandomPopulation(int size){
 	Population<G,P> p = new Population<>();
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size-1; i++) {
 	    p.addIndividual(newRandomIndividual());
 	}
 	return p;

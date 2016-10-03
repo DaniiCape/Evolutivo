@@ -10,3 +10,4 @@ Para poder leer el archivo, es necesario que se encuentre dentro de la carpeta b
 Tuvimos problemas para leer los archivos, nos tardamos mucho en esa parte, en lo demás creemos que estamos bien. Probamos ese archivo, y se puede ver la ejecución del algoritmo con ayuda de la herramienta gráfica del framework.
 
 En cuanto al reporte, espero podamos terminarlo en unas horas, mientras tanto, este es el adelanto más decente que tenemos.
+*Nota: Los resultados en las tablas, no representan los resultados originales.

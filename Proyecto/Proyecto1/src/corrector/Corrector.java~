@@ -1,0 +1,23 @@
+import gaframework.*;
+
+/**
+  *Clase que implementa la interfaz Corrector, la cual verifica que se cumplan las condiciones del agente viajero, ie, que la ciudad inicial y final sean la misma, y que no se repitan ciudades.
+  */
+
+
+public class Corrector implements Corrector<Integer>{
+
+    private int inicial; //El numero correspondiente a la ciudad inicial
+    private int tamGen;  //Tamaño del genotipo, equivalente al numero de ciudades
+
+    public Corrector (int i, int tamGen){
+	this.inicial = i;
+	this.tamGen = tamGen;
+    }
+
+    public Genotype<Integer> repairGenotype(Genotype<Integer> g){
+	Genotype<Integer> cout = new Genotype<Integer>(g.size());
+	
+    }
+
+}

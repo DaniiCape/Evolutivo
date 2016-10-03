@@ -40,9 +40,9 @@ public class Breeder<G,P> {
 	Genotype<G> correctedGenotype = (corrector != null) ? corrector.repairGenotype(genotype) : genotype;
 	Phenotype<P> phenotype = codification.decode(correctedGenotype);
 
-        System.out.println("breeder0");
-        System.out.println(genotype);
-	System.out.println("breeder");
+        //System.out.println("breeder0");
+        //System.out.println(genotype);
+	//System.out.println("breeder");
 	return new Individual<>(correctedGenotype, phenotype, function.evaluate(phenotype));
     }
     
