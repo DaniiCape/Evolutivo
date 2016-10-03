@@ -30,6 +30,7 @@ public class IntInteger implements Codification<Integer,Integer>{
     }
 
     public Phenotype<Integer> decode(Genotype<Integer> genotype){
+	//System.out.println(genotype+"decode");
 	Phenotype<Integer> out = new Phenotype<>(this.numFen);
 	c =new ArrayList<>();
 	for(int i=1;i<this.numFen+1;i++){
@@ -37,11 +38,13 @@ public class IntInteger implements Codification<Integer,Integer>{
 	}
 	for(int i=0;i<genotype.size();i++){
 	    int gen = genotype.getGene(i).intValue();
-	    //System.out.println("Imprimiendo gen" + String.valueOf(gen));
+	    //System.out.println(c);
+	    //System.out.println(gen+"gen");
 	    int phen = c.get(gen);
-	    //c.remove(gen); 
-            Integer ph = new Integer(phen);  
-	    out.setAllele(i,ph);
+	    //System.out.println(phen+"phen");
+	    c.remove(gen); 
+            //Integer ph = new Integer(phen);  
+	    out.setAllele(i,phen);
 	}
 	return out;
     }
@@ -49,18 +52,19 @@ public class IntInteger implements Codification<Integer,Integer>{
     public Genotype<Integer> newRandomGenotype(){
 	Genotype<Integer> out = new Genotype<>(this.numGen);
 	int t = this.numGen;
-	Random r = new Random();
+	Random r = new Random(1);
 	for(int i =0; i<this.numGen; i++){
 	    int r1 = r.nextInt(t);
             Integer inte = new Integer(r1);
 	    out.setGene(i,inte);
-	    //t--;
+	    t--;
 	}
+	//System.out.println(out+"decode");
 	return out;
     }
 
     public static void main (String[] args){
-	IntInteger i = new IntInteger(5);
+	IntInteger i = new IntInteger(14);
 	Genotype<Integer> g = i.newRandomGenotype();
 	System.out.println(g);
 	Phenotype<Integer> p = i.decode(g);

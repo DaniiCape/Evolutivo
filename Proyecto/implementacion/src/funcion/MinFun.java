@@ -2,17 +2,17 @@ import gaframework.*;
 import java.util.*;
 public class MinFun implements FitnessFunction<Integer>{
 
-    private Double[] vertices;
+    private double[] vertices;
     
-    public MinFun(Double[] vertices){
+    public MinFun(double[] vertices){
     	this.vertices=vertices;
     }
 
     public double peso(int a , int b){
-	double x1 = (this.vertices[(a*2)-2]).doubleValue();
-	double y1 = (this.vertices[(a*2)-1]).doubleValue();
-	double x2 = (this.vertices[(b*2)-2]).doubleValue();
-	double y2 = (this.vertices[(b*2)-1]).doubleValue();
+	double x1 = (this.vertices[(a*2)-2]);
+	double y1 = (this.vertices[(a*2)-1]);
+	double x2 = (this.vertices[(b*2)-2]);
+	double y2 = (this.vertices[(b*2)-1]);
 	if(x1<x2){
 	    x1 = x1 + x2;
 	    x2 = x1 - x2;
@@ -40,7 +40,7 @@ public class MinFun implements FitnessFunction<Integer>{
 	return fit;
 	    
     }
-    /**
+    
     public static void main (String[] args){
 	Phenotype<Integer> p = new Phenotype<>(5);
 	p.setAllele(0,5);
@@ -55,5 +55,5 @@ public class MinFun implements FitnessFunction<Integer>{
 	
 	System.out.println(m.evaluate(p));
     }
-   */
+   
 }

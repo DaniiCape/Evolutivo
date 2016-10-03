@@ -23,7 +23,7 @@ public class UniformMutation implements MutationOp<Integer>{
         Random r2 = new Random();
 	for(int i=0; i<g.size();i++){
 	    double r3 = r.nextDouble();
-	    System.out.println(r3);
+	    //System.out.println(r3);
 	    if(r3 < this.prob){
 	        int rm = r2.nextInt(tamGen);
                 Integer iout = new Integer(rm);

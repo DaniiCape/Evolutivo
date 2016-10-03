@@ -21,11 +21,12 @@ public class UniformMutation implements MutationOp<Integer>{
     public Genotype<Integer> mutate(Genotype<Integer> g){
 	Genotype<Integer> out = new Genotype<>(g.size());
         Random r2 = new Random();
+	int m = tamGen;
 	for(int i=0; i<g.size();i++){
 	    double r3 = r.nextDouble();
 	    //System.out.println(r3);
 	    if(r3 < this.prob){
-	        int rm = r2.nextInt(tamGen);
+	        int rm = r2.nextInt(m-i);
                 Integer iout = new Integer(rm);
 		out.setGene(i, iout);
 	    }else{

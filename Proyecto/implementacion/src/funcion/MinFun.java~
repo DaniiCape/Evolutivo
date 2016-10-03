@@ -2,9 +2,9 @@ import gaframework.*;
 import java.util.*;
 public class MinFun implements FitnessFunction<Integer>{
 
-    private Double[] vertices;
+    private double[] vertices;
     
-    public MinFun(Double[] vertices){
+    public MinFun(double[] vertices){
     	this.vertices=vertices;
     }
 
@@ -40,7 +40,7 @@ public class MinFun implements FitnessFunction<Integer>{
 	return fit;
 	    
     }
-
+    
     public static void main (String[] args){
 	Phenotype<Integer> p = new Phenotype<>(5);
 	p.setAllele(0,5);
@@ -55,4 +55,5 @@ public class MinFun implements FitnessFunction<Integer>{
 	
 	System.out.println(m.evaluate(p));
     }
+   
 }
