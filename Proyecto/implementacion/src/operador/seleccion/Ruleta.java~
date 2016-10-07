@@ -17,7 +17,7 @@ public class Ruleta <G,P> implements SelectionOp<G,P>{
 	for(int i=1; i<p.size(); i++){
 	    //System.out.print(p.getIndividual(i).getFitness());
     //los que tienen menor fitnes tienen más posibilidades de seleccion
-            int m = rango[i-1]/(p.getIndividual(i).getFitness())*10.0;
+           double m = rango[i-1]/(p.getIndividual(i).getFitness())*10;
 	    rango[i] = m+rango[i-1];
         }
 	LinkedList<Individual<G,P>> out = new LinkedList<>();
