@@ -1,13 +1,14 @@
 import java.util.*;
 import gaframework.*;
+import org.moeaframework.problem.tsplib.*;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 public class Main{
     
     public static void main(String args[]){
-	ArrayList<Double> l = new ArrayList<Double>();
-	try(Scanner sc = new Scanner(new File("burma14.txt"))){
+	/**ArrayList<Double> l = new ArrayList<Double>();
+	try(Scanner sc = new Scanner(new File("uli.txt"))){
 	    while(sc.hasNextLine()){
 		String line =  sc.nextLine();
 		///System.out.println(line);
@@ -40,6 +41,13 @@ public class Main{
 	Simple<Integer,Integer> sim = new Simple<>(bini, null, opc, um, ru, mf, null, ng, 200);
 	//sim.run(); 	
 	gaframeworkgui.GAGUI.setGA(sim);
- 	gaframeworkgui.GAGUI.launch(gaframeworkgui.GAGUI.class);
+ 	gaframeworkgui.GAGUI.launch(gaframeworkgui.GAGUI.class);**/
+ 	
+ 	//TSPProblem problem = new TSPProblem(new File("./data/tsp/pcb442.tsp"));
+       // problem.addTour(new File("./data/tsp/pcb442.opt.tour"));
+        Tour t = new Tour();
+        //for (Tour tour : problem.getTours()) {
+           // System.out.println(tour.distance(problem));
+        //}
     }
 }

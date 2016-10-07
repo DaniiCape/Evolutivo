@@ -5,7 +5,7 @@
     <javac srcdir="src"
 	   destdir="build"
 	   includeantruntime="false"
-	   classpath="lib/FrameworkAG.jar">
+	   classpath="lib/FrameworkAG.jar:lib/TSPLIB4J-0.2.jar">
       <compilerarg value="-Xlint"/>
     </javac>
   </target>

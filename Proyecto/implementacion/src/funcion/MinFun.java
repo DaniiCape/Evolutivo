@@ -8,7 +8,7 @@ public class MinFun implements FitnessFunction<Integer>{
     	this.vertices=vertices;
     }
 
-    public double peso(int a , int b){
+    private double peso(int a , int b){
 	double x1 = (this.vertices[(a*2)-2]);
 	double y1 = (this.vertices[(a*2)-1]);
 	double x2 = (this.vertices[(b*2)-2]);
@@ -24,7 +24,9 @@ public class MinFun implements FitnessFunction<Integer>{
 	    y2 = y1 - y2;
 	    y1 = y1 - y2;
 	}
-	return Math.sqrt( ((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)) );
+	
+	double v =Math.sqrt( ((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)) );
+	return v;
 	
     } 
 
@@ -51,6 +53,7 @@ public class MinFun implements FitnessFunction<Integer>{
 	double[] v =new double[10];
 	for(int i =0;i<10;i++)
 	    v[i]=i;
+        System.out.println(p);
 	MinFun m = new MinFun(v);
 	
 	System.out.println(m.evaluate(p));
