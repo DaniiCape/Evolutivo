@@ -22,6 +22,8 @@ public class Main {
 	 Ruleta<Integer,Integer> ru = new Ruleta<>(1,100);
 	 NumGeneraciones ng = new NumGeneraciones(200);
         Simple<Integer,Integer> sim = new Simple<>(bini, null, opc, um, ru, mf, null, ng, 200);
-        sim.run(); 
+        //sim.run(); 
+      gaframeworkgui.GAGUI.setGA(sim);
+      gaframeworkgui.GAGUI.launch(gaframeworkgui.GAGUI.class);
     }
 }
