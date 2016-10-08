@@ -35,6 +35,7 @@ public class Simple<G,P> implements GeneticAlgorithm<G,P> {
 
     public Population<G,P> iteration(Population<G,P> current) {
 	Population<G,P> out = new Population<>(current.getGeneration() + 1);
+        out.addIndividual(current.getBestIndividual());
 	while (out.size() < current.size()) {
 	    // Seleccion
 	    List<Individual<G,P>> selectionList = selectionOp.select(current);
@@ -71,10 +72,10 @@ public class Simple<G,P> implements GeneticAlgorithm<G,P> {
 	    System.out.println(10000 - p.getBestIndividual().getFitness());
 	    if(mejor>10000 - p.getBestIndividual().getFitness())
 	       mejor = 10000 - p.getBestIndividual().getFitness();
-            System.out.println("El peor");
-	    System.out.println(p.getWorstIndividual());
-            System.out.println("distancia");
-            System.out.println(10000 - p.getWorstIndividual().getFitness());
+            //System.out.println("El peor");
+	    //System.out.println(p.getWorstIndividual());
+            //System.out.println("distancia");
+            //System.out.println(10000 - p.getWorstIndividual().getFitness());
 	}
 	System.out.println("Mejor distancia del experimento");
         System.out.println(mejor);
