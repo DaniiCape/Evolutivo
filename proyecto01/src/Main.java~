@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
 	// Cargar los datos de problema:
-	TSPInstance prob = new TSPInstance(new File("data/tsp/ulysses16.tsp"));
+	TSPInstance prob = new TSPInstance(new File("data/tsp/gr21.tsp"));
 	// Imprimir la información del problema:
 	System.out.println(prob.getName());
 	System.out.println(prob.getComment());

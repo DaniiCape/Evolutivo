@@ -16,7 +16,7 @@ public class MinFun implements FitnessFunction<Integer>{
 	for(int i=0;i<p.size();i++)
             phen[i]=p.getAllele(i);
         Tour t  = Tour.createTour(phen);
-        double out =10000-t.distance(this.datos);
+        double out =100000-t.distance(this.datos);
         return out;
     }
    
