@@ -73,7 +73,7 @@ public class Simple<G,P> implements GeneticAlgorithm<G,P> {
 	while(!termination.conditionReached(p) && cont){
 	    l.add(new Statistics(p));
 	    p = iteration(p);
-	    System.out.println("Generation: " + p.getGeneration());
+	    System.out.println("Generation: " + (10000-p.getGeneration()));
 	    System.out.println(p.getWorstIndividual());
 	}
     }
